@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pratham P | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #F9FAFB;
+      --highlight: #317873;
+      --text-primary: #2B2B2B;
+      --card-bg: #E7EBE9;
+      --muted: #6B7B74;
+      --accent-soft: rgba(49, 120, 115, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--highlight);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #2a6157;
+      text-shadow: 0 0 6px var(--highlight);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      box-shadow: 0 2px 8px var(--accent-soft);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.3rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--highlight);
+      user-select: none;
+    }
+
+    nav a {
+      margin-left: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    nav a:hover {
+      color: #2a6157;
+    }
+
+    main.container {
+      max-width: 1280px;
+      margin: 2rem auto 4rem;
+      padding: 0 2rem;
+      min-height: calc(100vh - 100px);
+    }
+
+    section.hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--highlight);
+      align-items: flex-start;
+    }
+
+    .hero-main {
+      flex: 1 1 480px;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(3rem, 5vw, 3.75rem);
+      font-weight: 900;
+      color: var(--highlight);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      user-select: none;
+      animation: fadeSlideIn 1.4s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero-main h1 span {
+      color: var(--text-primary);
+      font-weight: 900;
+      animation: glowText 4s ease-in-out infinite alternate;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      animation: fadeSlideIn 2.3s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      animation: fadeSlideIn 3s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .tag {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.5rem 1.4rem;
+      border-radius: 20px;
+      background: var(--highlight);
+      color: var(--bg);
+      box-shadow: 0 0 14px var(--accent-soft);
+      user-select: none;
+    }
+
+    .hero-main p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      max-width: 32rem;
+      animation: fadeSlideIn 3.5s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    aside.hero-aside {
+      flex: 1 1 300px;
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 2rem 2rem 2.6rem;
+      box-shadow: 0 8px 24px var(--accent-soft);
+      border: 1.8px solid var(--accent-soft);
+      animation: fadeSlideIn 2.5s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      user-select: none;
+      min-width: 280px;
+    }
+
+    aside.hero-aside h2 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--highlight);
+      letter-spacing: 0.175em;
+      margin-bottom: 1.2rem;
+      user-select: none;
+    }
+
+    aside.hero-aside p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-line {
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      color: var(--text-primary);
+    }
+
+    .contact-strong {
+      font-weight: 700;
+      color: var(--highlight);
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-weight: 700;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      background: var(--highlight);
+      color: var(--bg);
+      user-select: none;
+      box-shadow: 0 0 18px var(--accent-soft);
+      transition: transform 0.3s ease;
+    }
+
+    .pill:hover {
+      transform: scale(1.05);
+    }
+
+    h3.section-title {
+      font-weight: 900;
+      color: var(--highlight);
+      letter-spacing: 0.25em;
+      font-size: 1.6rem;
+      margin: 3.75rem 0 2.15rem;
+      user-select: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 8px 25px var(--accent-soft);
+      border: 1.6px solid var(--accent-soft);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 40px var(--accent-soft);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      color: var(--highlight);
+      user-select: none;
+    }
+
+    .card-sub {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.3rem;
+      color: var(--text-primary);
+    }
+
+    .card-body {
+      font-size: 1rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .badge-row {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .badge {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      padding: 0.5rem 1.6rem;
+      border-radius: 9999px;
+      background: var(--highlight);
+      color: var(--bg);
+      user-select: none;
+      box-shadow: 0 0 16px var(--accent-soft);
+      cursor: default;
+      transition: transform 0.3s ease;
+    }
+
+    .badge:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 24px var(--highlight);
+    }
+
+    .skill-chips {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+    }
+
+    .skill-chip {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      background: var(--highlight);
+      color: var(--bg);
+      box-shadow: 0 0 28px var(--accent-soft);
+      user-select: none;
+      cursor: default;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-chip:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px var(--highlight);
+    }
+
+    footer.footer {
+      max-width: 1280px;
+      margin: 4rem auto 3rem;
+      padding-top: 3rem;
+      border-top: 2px solid var(--highlight);
+      font-size: 1.05rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      user-select: none;
+    }
+
+    footer.footer span {
+      opacity: 0.8;
+    }
+
+    /* Animations */
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowText {
+      0%, 100% {
+        color: var(--highlight);
+        text-shadow: 0 0 6px var(--highlight);
+      }
+      50% {
+        color: var(--text-primary);
+        text-shadow: none;
+      }
+    }
+
+    @keyframes subtlePulse {
+      0% {
+        color: var(--highlight);
+        text-shadow: 0 0 8px var(--highlight);
+      }
+      50% {
+        color: var(--text-primary);
+        text-shadow: none;
+      }
+      100% {
+        color: var(--highlight);
+        text-shadow: 0 0 8px var(--highlight);
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      section.hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      main.container {
+        margin: 1.5rem auto 3rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PRATHAM&nbsp;P.</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Project</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="about">
+      <div class="hero-main">
+        <h1>Hi, <span>Pratham</span> here.</h1>
+        <div class="subtitle">Web Developer · Python Programmer · Tech Learner</div>
+        <div class="tags">
+          <span class="tag">Computer Science Student</span>
+          <span class="tag">Ahmedabad, India</span>
+        </div>
+        <p>
+          A passionate and focused Computer Science student exploring modern web technologies and software solutions.<br />
+          Motivated by problem solving and always excited to build, learn, and grow.
+        </p>
+      </div>
+
+      <aside class="hero-aside" id="contact">
+        <h2>Contact & Location</h2>
+        <p class="contact-line"><span class="contact-strong">Location:</span> Ahmedabad, Gujarat, India</p>
+        <p class="contact-line"><span class="contact-strong">Phone:</span> +91 7383509903</p>
+        <p class="contact-line"><span class="contact-strong">Email:</span> <a href="mailto:prathampanchal537@gmail.com">prathampanchal537@gmail.com</a></p>
+        <div class="pill-row">
+          <div class="pill">Open to Internships</div>
+          <div class="pill">Entry-level Roles</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="skills">
+      <h3 class="section-title">Skills</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Technical Skills</div>
+          <div class="card-body">
+            <div class="skill-chips">
+              <span class="skill-chip">Python Programming</span>
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">Web Development</span>
+              <span class="skill-chip">Automation (Basics)</span>
+              <span class="skill-chip">Canva · UI Basics</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Soft Skills & Strengths</div>
+          <div class="card-body">
+            <ul style="padding-left: 18px;">
+              <li>Strong communication and teamwork</li>
+              <li>Fast learner with positive attitude</li>
+              <li>Leadership qualities and task ownership</li>
+              <li>Logical thinking and problem solving</li>
+              <li>Adaptability in new environments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3 class="section-title">Featured Project</h3>
+      <div class="card">
+        <div class="card-title">Student Management System</div>
+        <div class="card-sub">Python · MySQL</div>
+        <div class="card-body">
+          Designed and developed a mini system to manage student records, including admission, attendance, and performance.<br />
+          Focused on efficient data handling, database structure, and a smooth user flow for managing student information.
+        </div>
+        <div class="badge-row">
+          <span class="badge">Backend Logic</span>
+          <span class="badge">Database Design</span>
+          <span class="badge">CRUD Operations</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h3 class="section-title">Experience</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Python Developer Intern</div>
+          <div class="card-sub">SAHANA System Limited · 1 Jun 2024 – 1 Nov 2024</div>
+          <div class="card-body">
+            <ul style="padding-left: 18px;">
+              <li>Developed and maintained Python-based modules for internal projects.</li>
+              <li>Wrote clean, testable code and assisted in debugging existing features.</li>
+              <li>Collaborated with senior developers to understand real-world software development practices.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Data Management – ERP Finance Intern</div>
+          <div class="card-sub">SAHANA System Limited · 3 months</div>
+          <div class="card-body">
+            <ul style="padding-left: 18px;">
+              <li>Worked on data management activities in the ERP–Finance module.</li>
+              <li>Cleaned, validated, and organised financial data to keep records accurate.</li>
+              <li>Supported reporting, helping the team get better insights from the finance data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Education</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Bachelor of Computer Science</div>
+          <div class="card-sub">University – To be updated</div>
+          <div class="card-body">
+            2022 – Present · Ahmedabad, Gujarat, India<br />
+            Building a strong foundation in programming, data structures, databases, and software development concepts.
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-title" id="certs">Certifications</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Deloitte – Technology Virtual Internship</div>
+          <div class="card-body">
+            Exposure to practical, industry-style tasks and workflows in a technology consulting environment.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">TCS iON – Career Edge</div>
+          <div class="card-body">
+            Improved workplace readiness with training in communication, corporate etiquette, and fundamental technical skills.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">HP Life – Business & IT Courses</div>
+          <div class="card-body">
+            Completed modules covering technology and basic business skills, strengthening problem-solving and digital literacy.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Wadhwani Foundation – Employability Skills</div>
+          <div class="card-body">
+            Gained employability skills in communication, workplace behavior, and professional readiness.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">SAHANA System Limited – Internship Certificates</div>
+          <div class="card-body">
+            Certificates for Python Developer internship and Data Management internship in ERP–Finance domain, reflecting hands-on industry experience.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">What I Bring</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Mindset</div>
+          <div class="card-body">
+            Curious, self-driven learner who enjoys experimenting with new tools and technologies and taking ownership of tasks from start to finish.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Next Goals</div>
+          <div class="card-body">
+            To contribute to real-world web and Python projects, improve backend and database skills, and collaborate with teams on impactful software.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Pratham Krushnakant Panchal</span>
+      <span>Built with HTML &amp; CSS · Professional &amp; Clean</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
